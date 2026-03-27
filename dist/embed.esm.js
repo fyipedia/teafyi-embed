@@ -1,4 +1,4 @@
-/* teafyi-embed v1.1.0 | MIT | https://widget.teafyi.com */
+/* teafyi-embed v1.1.1 | MIT | https://widget.teafyi.com */
 
 // src/styles/modern.ts
 function getModernCSS() {
