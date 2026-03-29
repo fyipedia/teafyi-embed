@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# TeaFYI Embed Widget
+# Main site: https://teafyi.com
+# Widget docs: https://widget.teafyi.com
+# npm: https://www.npmjs.com/package/teafyi-embed
