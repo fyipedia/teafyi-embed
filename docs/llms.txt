@@ -1,21 +1,54 @@
 # TeaFYI Embed Widget
 
-> Embeddable TeaFYI widgets for any website. Zero dependencies, Shadow DOM isolation, 4 themes (light/dark/sepia/auto).
+> 60 tea varieties, brewing guides. Embeddable widgets for any website. Zero dependencies, Shadow DOM isolation.
 
 ## Quick Start
 
-Add to any HTML page:
-- Script: <script src="https://cdn.jsdelivr.net/npm/teafyi-embed@1/dist/embed.min.js"></script>
+```html
+<script src="https://cdn.jsdelivr.net/npm/teafyi-embed@1/dist/embed.min.js"></script>
+<div data-teafyi="color-swatch" data-slug="example"></div>
+```
+
+## Available Widget Types (10)
+
+- recipe: `data-teafyi="recipe"`
+- compare: `data-teafyi="compare"`
+- glossary: `data-teafyi="glossary"`
+- faq: `data-teafyi="faq"`
+- guide: `data-teafyi="guide"`
+- ingredient: `data-teafyi="ingredient"`
+- pairing: `data-teafyi="pairing"`
+- search: `data-teafyi="search"`
+- color-swatch (interactive): `data-teafyi="color-swatch"`
+- brew-timer (interactive): `data-teafyi="brew-timer"`
+
+## Customization
+
+- **Themes**: light, dark, sepia, auto (follows system preference)
+- **Sizes**: compact (280px), default (420px), large (720px)
+- **Styles**: modern, classic
+
+```html
+<div data-teafyi="color-swatch" data-slug="example"
+     data-theme="auto" data-size="compact" data-style-variant="modern"></div>
+```
+
+## Integration Methods
+
+1. **Script tag** (recommended): `<script src="https://cdn.jsdelivr.net/npm/teafyi-embed@1/dist/embed.min.js"></script>`
+2. **iframe**: `https://teafyi.com/iframe/entity/{slug}/`
+3. **oEmbed**: `https://teafyi.com/oembed?url={page_url}&format=json`
+4. **Badge**: `https://teafyi.com/badge/site.svg`
 
 ## Links
 
 - Main site: https://teafyi.com
 - Widget docs: https://widget.teafyi.com
-- npm: https://www.npmjs.com/package/teafyi-embed
+- API documentation: https://teafyi.com/developers/
+- npm package: https://www.npmjs.com/package/teafyi-embed
 - GitHub: https://github.com/fyipedia/teafyi-embed
-- API: https://teafyi.com/developers/
 
-## Beverage FYI Widget Family
+## Beverage FYI Widget Network
 
 - [CocktailFYI Widget](https://widget.cocktailfyi.com)
 - [VinoFYI Widget](https://widget.vinofyi.com)
