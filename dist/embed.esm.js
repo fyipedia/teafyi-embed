@@ -799,7 +799,7 @@ function renderError(container, message, config) {
   container.innerHTML = `
     <div class="drinkfyi-error">
       <p>${message}</p>
-      <a href="https://${config.domain}" target="_blank" rel="noopener">
+      <a href="https://${config.domain}" target="_blank" rel="nofollow noopener">
         Visit ${config.name}
       </a>
     </div>
@@ -807,7 +807,7 @@ function renderError(container, message, config) {
 }
 var externalLinkIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
 function poweredByHTML(config) {
-  return `<span class="drinkfyi-powered">Powered by <a href="https://${config.domain}" target="_blank" rel="noopener">${config.name}</a></span>`;
+  return `<span class="drinkfyi-powered">Powered by <a href="https://${config.domain}" target="_blank" rel="nofollow noopener">${config.name}</a></span>`;
 }
 
 // src/api.ts
@@ -1047,7 +1047,7 @@ function renderRecipe(container, data, slug, config, el) {
     ${description ? `<p class="drinkfyi-description">${escapeHTML(description)}</p>` : ""}
 
     <div class="drinkfyi-actions">
-      <a class="drinkfyi-link" href="${entityUrl}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${entityUrl}" target="_blank" rel="nofollow noopener">
         View on ${escapeHTML(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1096,7 +1096,7 @@ function statsGrid(stats) {
 function viewLink(url, _domain, name) {
   return `
     <div class="drinkfyi-view-link">
-      <a href="${esc(url)}" target="_blank" rel="noopener">
+      <a href="${esc(url)}" target="_blank" rel="nofollow noopener">
         View on ${esc(name)} ${externalLinkIcon}
       </a>
     </div>`;
@@ -1256,7 +1256,7 @@ function initCompareWidget(el, config) {
                 ${entities.map(
       (e) => `
                   <th class="drinkfyi-compare-th" style="width:${colWidth}%">
-                    <a href="https://${config.domain}/${config.entitySlug}/${escapeHTML2(e.slug)}/" target="_blank" rel="noopener" class="drinkfyi-compare-entity-link">
+                    <a href="https://${config.domain}/${config.entitySlug}/${escapeHTML2(e.slug)}/" target="_blank" rel="nofollow noopener" class="drinkfyi-compare-entity-link">
                       ${escapeHTML2(String(e.name))}
                       ${externalLinkIcon}
                     </a>
@@ -1325,7 +1325,7 @@ function renderGlossary(container, data, config) {
   const glossaryUrl = `https://${config.domain}/glossary/`;
   const category = data.category ? escapeHTML3(data.category) : "";
   const relatedPills = data.related_terms && data.related_terms.length > 0 ? data.related_terms.map(
-    (rt) => `<a class="drinkfyi-pill" href="https://${config.domain}/glossary/${escapeHTML3(rt.slug)}/" target="_blank" rel="noopener">${escapeHTML3(rt.name)}</a>`
+    (rt) => `<a class="drinkfyi-pill" href="https://${config.domain}/glossary/${escapeHTML3(rt.slug)}/" target="_blank" rel="nofollow noopener">${escapeHTML3(rt.name)}</a>`
   ).join("") : "";
   container.innerHTML = `
     <div class="drinkfyi-header">
@@ -1343,10 +1343,10 @@ function renderGlossary(container, data, config) {
     ${relatedPills ? `<div class="drinkfyi-pills-row">${relatedPills}</div>` : ""}
 
     <div class="drinkfyi-actions">
-      <a class="drinkfyi-link" href="${termUrl}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${termUrl}" target="_blank" rel="nofollow noopener">
         ${escapeHTML3(data.name)} ${externalLinkIcon}
       </a>
-      <a class="drinkfyi-link" href="${glossaryUrl}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${glossaryUrl}" target="_blank" rel="nofollow noopener">
         Full glossary on ${escapeHTML3(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1409,10 +1409,10 @@ function renderFaq(container, data, config) {
     </details>
 
     <div class="drinkfyi-actions">
-      <a class="drinkfyi-link" href="${faqUrl}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${faqUrl}" target="_blank" rel="nofollow noopener">
         Full answer ${externalLinkIcon}
       </a>
-      <a class="drinkfyi-link" href="${faqsUrl}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${faqsUrl}" target="_blank" rel="nofollow noopener">
         More FAQs on ${escapeHTML4(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1455,7 +1455,7 @@ function initGuideWidget(el, config) {
           </div>
           ${excerpt ? `<p class="drinkfyi-guide-excerpt">${escapeHTML5(excerpt)}</p>` : ""}
           <div class="drinkfyi-guide-footer">
-            <a href="${guideUrl}" target="_blank" rel="noopener" class="drinkfyi-guide-cta">
+            <a href="${guideUrl}" target="_blank" rel="nofollow noopener" class="drinkfyi-guide-cta">
               Read guide on ${escapeHTML5(config.name)}
               ${externalLinkIcon}
             </a>
@@ -1533,7 +1533,7 @@ function renderIngredient(container, data, endpoint, config) {
     ${description ? `<p class="drinkfyi-description">${escapeHTML6(description)}</p>` : ""}
 
     <div class="drinkfyi-actions">
-      <a class="drinkfyi-link" href="${entityUrl}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${entityUrl}" target="_blank" rel="nofollow noopener">
         View on ${escapeHTML6(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1563,9 +1563,9 @@ function initPairingWidget(el, config) {
       </div>
       <div class="drinkfyi-summary">
         Food pairings are available on
-        <a href="https://cocktailfyi.com/" target="_blank" rel="noopener">CocktailFYI</a>
+        <a href="https://cocktailfyi.com/" target="_blank" rel="nofollow noopener">CocktailFYI</a>
         and
-        <a href="https://vinofyi.com/" target="_blank" rel="noopener">VinoFYI</a>.
+        <a href="https://vinofyi.com/" target="_blank" rel="nofollow noopener">VinoFYI</a>.
       </div>
       ${poweredByHTML(config)}
     `;
@@ -1603,7 +1603,7 @@ function renderPairing(container, data, food, config) {
       </div>
       <div class="drinkfyi-summary">
         No pairing suggestions found for "${foodName}".
-        <a href="https://${config.domain}/" target="_blank" rel="noopener">Browse ${escapeHTML7(config.name)}</a>
+        <a href="https://${config.domain}/" target="_blank" rel="nofollow noopener">Browse ${escapeHTML7(config.name)}</a>
         for more options.
       </div>
       ${poweredByHTML(config)}
@@ -1616,7 +1616,7 @@ function renderPairing(container, data, food, config) {
     const note = (_b2 = (_a2 = item.pairing_notes) != null ? _a2 : item.description) != null ? _b2 : "";
     return `
         <div class="drinkfyi-pairing-item">
-          <a class="drinkfyi-pairing-name" href="${href}" target="_blank" rel="noopener">
+          <a class="drinkfyi-pairing-name" href="${href}" target="_blank" rel="nofollow noopener">
             ${escapeHTML7(item.name)}
             ${externalLinkIcon}
           </a>
@@ -1636,7 +1636,7 @@ function renderPairing(container, data, food, config) {
     </div>
 
     <div class="drinkfyi-actions">
-      <a class="drinkfyi-link" href="https://${config.domain}/" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="https://${config.domain}/" target="_blank" rel="nofollow noopener">
         Explore ${escapeHTML7(config.name)} ${externalLinkIcon}
       </a>
     </div>
@@ -1743,7 +1743,7 @@ function initSearchWidget(el, config) {
           class="drinkfyi-search-result-item"
           href="${href}"
           target="_blank"
-          rel="noopener"
+          rel="nofollow noopener"
           role="option"
           tabindex="-1"
         >
@@ -1949,7 +1949,7 @@ function renderSrmSwatch(container, srm, config) {
     </div>
 
     <div class="drinkfyi-actions">
-      <a class="drinkfyi-link" href="${learnHref}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${learnHref}" target="_blank" rel="nofollow noopener">
         More on ${config.name} ${externalLinkIcon}
       </a>
     </div>
@@ -1991,7 +1991,7 @@ function renderOxidationSwatch(container, oxidation, config) {
     </div>
 
     <div class="drinkfyi-actions">
-      <a class="drinkfyi-link" href="${learnHref}" target="_blank" rel="noopener">
+      <a class="drinkfyi-link" href="${learnHref}" target="_blank" rel="nofollow noopener">
         More on ${config.name} ${externalLinkIcon}
       </a>
     </div>
